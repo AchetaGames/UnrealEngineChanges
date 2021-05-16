@@ -2,7 +2,7 @@ import os
 from github import Github
 import re
 
-TOKEN = os.environ.get('GITHUB_TOKEN')
+TOKEN = os.environ.get('TOKEN')
 g = Github(TOKEN)
 
 issues_repo = g.get_repo("AchetaGames/UnrealEngineChanges")
