@@ -8,6 +8,7 @@ on:
     branches: [ main ]
   issues:
     types: [opened]
+  workflow_dispatch:
 
 jobs:
   build:
