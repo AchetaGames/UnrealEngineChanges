@@ -8,7 +8,7 @@ g = Github(TOKEN)
 issues_repo = g.get_repo("AchetaGames/UnrealEngineChanges")
 
 open_issues = issues_repo.get_issues(state='open')
-
+print("Checking issues against upstream Unreal Engine repository")
 for issue in open_issues:
     print(issue.title)
     pr = re.search("(?P<url>https?://[^\s]+)", issue.body).group("url")
@@ -16,7 +16,7 @@ for issue in open_issues:
     if r:
         pr_repo = g.get_repo(r.group("repo"))
         request = pr_repo.get_pull(int(r.group("id")))
-        print("\tHas linked PR: {}/pull/{}".format(pr_repo, r.group("id")))
+        print("\tHas linked PR: {}/pull/{}".format(r.group("repo"), r.group("id")))
         for label in request.labels:
             if label.name == "Accepted":
                 print("\tThe PR is Accepted")
