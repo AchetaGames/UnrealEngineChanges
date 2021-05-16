@@ -18,6 +18,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         python-version: 3.9
     - name: Install dependencies
