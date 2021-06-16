@@ -24,6 +24,7 @@ for issue in open_issues:
         if request.merged or request.closed_at:
             print("\tThe PR is Accepted")
             issue.edit(state="Closed")
+            issue.remove_from_labels(issues_repo.get_label("Waiting for Approval"))
             continue
         if not request.mergeable:
             print("\tPR is blocked")
